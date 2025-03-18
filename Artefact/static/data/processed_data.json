@@ -1,0 +1,28 @@
+{
+    "species_population": {
+        "Cod": 355354,
+        "Herring": 436919,
+        "Mackerel": 331735,
+        "Salmon": 359438,
+        "Sardine": 378950,
+        "Shark": 315390,
+        "Snapper": 308146,
+        "Tuna": 328463
+    },
+    "region_population": {
+        "Indian Ocean": 599076,
+        "Mediterranean Sea": 801875,
+        "North Atlantic": 684543,
+        "Pacific Ocean": 728901
+    },
+    "overfishing_risk": {
+        "Salmon": "No",
+        "Tuna": "Yes",
+        "Cod": "Yes",
+        "Herring": "Yes",
+        "Mackerel": "Yes",
+        "Sardine": "No",
+        "Shark": "Yes",
+        "Snapper": "Yes"
+    }
+}

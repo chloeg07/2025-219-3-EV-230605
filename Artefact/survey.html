@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Fish Population Survey</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #e0f7fa;
+            text-align: center;
+            margin: 0;
+            padding: 0;
+        }
+        section {
+            margin-top: 40px;
+            padding: 20px;
+            background-color: #ffffff;
+            border-top: 3px solid #00796b;
+            border-radius: 10px;
+            display: inline-block;
+            box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.1);
+        }
+        button {
+            background-color: #00796b;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            cursor: pointer;
+            border-radius: 5px;
+            transition: 0.3s;
+        }
+        button:hover {
+            background-color: #004d40;
+        }
+        body {
+    background-color: #dff5f5;
+    font-family: 'Arial', sans-serif;
+    text-align: center;
+    position: relative;
+}
+
+.container {
+    position: relative;
+}
+
+.whale-shark {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 20px;
+        }
+        
+        .salmon {
+            width: 150px;
+            height: auto;
+        }
+
+        
+
+    </style>
+</head>
+<body>
+    <img src ="static/salmon-Photoroom.png" class= "fish" alt ="Salmon">
+    <img src="static/whaleshark-Photoroom.png" class="shark" alt="Whale Shark">
+
+
+
+
+    <section id="Survey">
+        <h3>Fish Population Survey</h3>
+        <form id="fishSurvey">
+            <label>How many fish species have you observed?</label><br>
+            <select name="speciesCount">
+                <option value="0-5">0-5</option>
+                <option value="6-10">6-10</option>
+                <option value="11 or more">11 or more</option>
+            </select><br><br>
+
+            <label>Have you noticed any overfishing?</label><br>
+            <select name="overfishingObserved">
+                <option value="Yes">Yes</option>
+                <option value="No">No</option>
+            </select><br><br>
+
+            <label>Favorite fish species?</label><br>
+            <input type="text" name="favoriteFish" placeholder="e.g., Clownfish, Tuna"><br><br>
+
+            <button type="submit">Submit</button>
+        </form>
+    </section>
+
+    <script type="module">
+        import { initializeApp } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-app.js";
+        import { getDatabase, ref, push } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-database.js";
+
+        const firebaseConfig = {
+            apiKey: "AIzaSyCnlnt4o9tREZ6O5uv4tP6iSaoYZZEbePM",
+            authDomain: "my-awesome-project-7bcea.firebaseapp.com",
+            databaseURL: "https://my-awesome-project-7bcea-default-rtdb.europe-west1.firebasedatabase.app",
+            projectId: "my-awesome-project-7bcea",
+            storageBucket: "my-awesome-project-7bcea.firebasestorage.app",
+            messagingSenderId: "1001948899518",
+            appId: "1:1001948899518:web:71329e4abe3ec8dd11d6ef",
+            measurementId: "G-2ZBKE4VEPP"
+        };
+
+        const app = initializeApp(firebaseConfig);
+        const db = getDatabase(app);
+
+        document.getElementById('fishSurvey').onsubmit = async function(e) {
+            e.preventDefault();
+            const data = {
+                speciesCount: e.target.speciesCount.value,
+                overfishingObserved: e.target.overfishingObserved.value,
+                favoriteFish: e.target.favoriteFish.value,
+                timestamp: new Date().toISOString()
+            };
+
+            try {
+                await push(ref(db, 'fishSurveyResults'), data);
+                alert('Thanks for your response!');
+                e.target.reset();
+            } catch (err) {
+                console.error('Firebase error:', err);
+                alert('Could not submit the form. Error: ' + err.message);
+            }
+        };
+    </script>
+</body>
+</html>

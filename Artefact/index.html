@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fish Population Dashboard</title>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link rel="stylesheet" href="static/style.css">
+</head>
+<body>
+    <h1>Fish Population Dashboard, Scroll for photos of silly fish!!!! </h1>
+    
+    <h3>Q&A Section</h3>
+    <form id="questionForm">
+        <label for="userQuestion">Ask a question:</label>
+        <input type="text" id="userQuestion" placeholder="e.g. Is tuna overfished?">
+        <button type="submit">Ask</button>
+    </form>
+    <div id="answer"></div>
+    
+    <h3>Suggest an Improvement</h3>
+    <form id="improvementForm">
+        <input type="text" id="improvementInput" placeholder="Suggest an improvement">
+        <button type="submit">Submit</button>
+    </form>
+    <p id="improvementMessage"></p>
+    <h3>
+        Some facts about Marine Fish that you may find interesting. 
+</h3>
+<h5>
+    Many marine fish follow the Temperature-Size Rule, which states that individuals tend to grow to smaller adult sizes in warmer waters and larger sizes in cooler waters.
+</h5>
+<h5>
+    In regions with high water pollution and rising temperatures (e.g., Southeast Asia, Gulf of Mexico), fish tend to be smaller due to increased stress, oxygen depletion, and toxin accumulation.
+</h5>
+
+    <div class="chart-container">
+        <canvas id="speciesChart"></canvas>
+        <canvas id="regionChart"></canvas>
+        <canvas id="riskChart"></canvas>
+    </div>
+    
+    
+
+    <script>
+        
+
+        // Question & Answer logic
+        document.getElementById('questionForm').addEventListener('submit', function(event) {
+            event.preventDefault();
+            let question = document.getElementById('userQuestion').value.toLowerCase();
+            let answer = '';
+            alert(question)
+            if (question.includes('most populated')) {
+                answer = 'The species with the highest population is Tuna.';
+            } else if (question.includes('region')) {
+                answer = 'The region with the most fish is the Pacific Ocean.';
+            } else if (question.includes('population of cod')) {
+                answer = 'Cods population is 355354.';
+            } else if (question.includes('population of herring')){
+                answer = 'Herrings population is 436919.';
+            } else if (question.includes('population of mackerel')){
+                answer = 'Mackerels population is 331735.';
+            } else if (question.includes('population of Salmon')){
+                answer = 'Salmons population is 359438.';
+            } else if (question.includes('population of Sardine')){
+                answer = 'Sardine population is 378950.';
+            } else if (question.includes('population of Shark')){
+                answer = 'Shark population is 315390.';
+            } else if (question.includes('population of snapper')){
+                answer = 'Snapper population is 308146. ';
+            } else if (question.includes('population of tuna')){
+                answer = 'Tuna population is 328463. ';
+            } else if (question.includes('indian')){
+                answer = 'The population in the Indian Ocean is 599076.';
+            } else if (question.includes('population in the mediterranean sea')){
+                answer = 'The population in the Mediterranean Sea is 801875.';
+            } else if (question.includes('population in the north atlantic')){
+                answer = 'The population in the North Atlantic is 684543.';
+            } else if (question.includes('population in the pacific ocean')){
+                answer = 'The population in the Pacific Ocean is 728901';
+            } else if (question.includes('salmon overfished')) {
+                answer = 'No. Salmon are not overfished. ';
+            } else if (question.includes('tuna overfished')) {
+                answer = 'Yes. Tuna is overfished. ';
+            } else if (question.includes('cod overfished')) {
+                answer = 'Yes. Cod is overfished. ';
+            } else if (question.includes('Herring overfished')) {
+                answer = 'Yes. Herring is overfished.';
+            } else if (question.includes('mackerel overfished')) {
+                answer = 'Yes. Mackerel is overfished. ';
+            } else if (question.includes('sardine overfished')) {
+                answer = 'No. Sardine is not overfished. ';
+            } else if (question.includes('shark overfished')) {
+                answer = 'Yes. Shark is ovefished :(. ';
+            } else if (question.includes('snapper overfished')) {
+                answer = 'Yes. Snapper is overfished. ';
+            
+            } else {
+                answer = 'Sorry, I couldn’t understand your question.';
+            }
+            document.getElementById('answer').innerText = answer;
+        });
+
+        // Suggest Improvement logic
+        document.getElementById('improvementForm').addEventListener('submit', function(event) {
+            event.preventDefault();
+            document.getElementById('improvementMessage').innerText = 'Recommendation recorded. Thank you!';
+        });
+
+        // Load data and initialize charts
+        fetch('static/data/processed_data.json')
+            .then(response => response.json())
+            .then(data => {
+                createSpeciesChart(data.species_population);
+                createRegionChart(data.region_population);
+                createRiskChart(data.overfishing_risk);
+            })
+            .catch(error => console.error('Error loading data:', error));
+
+        function createSpeciesChart(speciesData) {
+            const ctx = document.getElementById('speciesChart').getContext('2d');
+            new Chart(ctx, {
+                type: 'bar',
+                data: {
+                    labels: Object.keys(speciesData),
+                    datasets: [{
+                        label: 'Population',
+                        data: Object.values(speciesData),
+                        backgroundColor: 'rgba(75, 192, 192, 0.2)',
+                        borderColor: 'rgba(75, 192, 192, 1)',
+                        borderWidth: 1
+                    }]
+                },
+                options: { responsive: true }
+            });
+        }
+
+        function createRegionChart(regionData) {
+            const ctx = document.getElementById('regionChart').getContext('2d');
+            new Chart(ctx, {
+                type: 'pie',
+                data: {
+                    labels: Object.keys(regionData),
+                    datasets: [{
+                        data: Object.values(regionData),
+                        backgroundColor: ['#ff6384', '#36a2eb', '#ffce56', '#4bc0c0', '#9966ff']
+                    }]
+                },
+                options: { responsive: true }
+            });
+        }
+
+        function createRiskChart(riskData) {
+            const ctx = document.getElementById('riskChart').getContext('2d');
+            new Chart(ctx, {
+                type: 'bar',
+                data: {
+                    labels: Object.keys(riskData),
+                    datasets: [{
+                        label: 'Overfishing Risk. Red if overfished.',
+                        data: Object.values(riskData).map(risk => (risk === 'Yes' ? 1 : 0)),
+                        backgroundColor: Object.values(riskData).map(risk => (risk === 'Yes' ? 'rgba(255, 99, 132, 0.2)' : 'rgba(75, 192, 192, 0.2)')),
+                        borderColor: Object.values(riskData).map(risk => (risk === 'Yes' ? 'rgba(255, 99, 132, 1)' : 'rgba(75, 192, 192, 1)')),
+                        borderWidth: 1
+                    }]
+                },
+                options: { indexAxis: 'y', responsive: true }
+            });
+        }
+        
+    </script>
+    <img src="static/whaleshark-Photoroom.png" class="shark" alt="Whale Shark">   <img src="static/Tuna-Photoroom.png" class="fish" alt="Tuna">
+</body>
+</html>
