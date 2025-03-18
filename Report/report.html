@@ -1,0 +1,373 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Marine Fish Data</title>
+    <style>
+        body { font-family: Arial, sans-serif; margin: 0; padding: 0; }
+        .navbar { background: #0077b6; padding: 10px; text-align: center; }
+        .navbar button { margin: 5px; padding: 10px; border: none; background: rgb(21, 206, 181); cursor: pointer; }
+        .navbar button:hover { background: rgb(75, 195, 211); }
+        section { padding: 20px; display: none; }
+        h2 { color: #0077b6; }
+        
+
+
+        /* Styling the welcome section with the background image */
+        #create {
+            background-image: url('static/whaleshark-Photoroom.png');
+            background-size: cover;
+            background-position: center;
+            height: 89vh; /* Full viewport height */
+            color: rgb(155, 108, 231); /* White text for contrast */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 0;
+        }
+
+        /* Styling the content inside the welcome section */
+        #create h2, #create p {
+            background: rgb(108, 219, 141); /* Transparent background for text for better readability */
+            padding: 40px;
+            border-radius: 8px;
+        }
+        #evaluation {
+            background-image: url('static/herring.webp');
+            background-size: cover;
+            background-position: center;
+            height: 89vh; /* Full viewport height */
+            color: rgb(255, 255, 255); /* White text for contrast */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 0;
+        }
+
+        /* Styling the content inside the welcome section */
+        #evaluation h2, #evaluation p {
+            background: rgb(108, 197, 219); /* Transparent background for text for better readability */
+            padding: 20px;
+            border-radius: 8px;
+        }
+        #investigation {
+            background-image: url('static/mackerel.jpg');
+            background-size: cover;
+            background-position: center;
+            height: 130vh; /* Full viewport height */
+            color: rgb(255, 255, 255); /* White text for contrast */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 0;
+        }
+
+        /* Styling the content inside the welcome section */
+        #investigation h2, #investigation p {
+            background: rgb(108, 197, 219); /* Transparent background for text for better readability */
+            padding: 20px;
+            border-radius: 8px;
+        }
+        #references {
+            background-image: url('static/salmonwater.jpg');
+            background-size: cover;
+            background-position: center;
+            height: 89vh; /* Full viewport height */
+            color: rgb(255, 255, 255); /* White text for contrast */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 0;
+        }
+
+        /* Styling the content inside the welcome section */
+        #references h2, #references p {
+            background: rgb(108, 197, 219); /* Transparent background for text for better readability */
+            padding: 20px;
+            border-radius: 8px;
+        }
+        #summary-word-count {
+            background-image: url('static/fishs.jpg');
+            background-size: cover;
+            background-position: center;
+            height: 87.5vh; /* Full viewport height */
+            color: rgb(255, 255, 255); /* White text for contrast */
+            display: auto;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 0;
+        }
+
+        /* Styling the content inside the welcome section */
+        #summary-word-count h2, #summary-word-count p {
+            background: rgb(108, 197, 219); /* Transparent background for text for better readability */
+            padding: 20px;
+            border-radius: 8px;
+        }
+        #plan-design {
+            background-image: url('static/Sharks.webp');
+            background-size: cover;
+            background-position: center;
+            height: 200vh; /* Full viewport height */
+            color: white; /* White text for contrast */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 0;
+        }
+
+        /* Styling the content inside the welcome section */
+        #plan-design h2, #plan-design p {
+            background: rgba(0, 0, 0, 0.5); /* Transparent background for text for better readability */
+            padding: 20px;
+            border-radius: 8px;
+        }
+        #welcome {
+            background-image: url('static/welcome.gif');
+            background-size: cover;
+            background-position: center;
+            height: 89vh; /* Full viewport height */
+            color: white; /* White text for contrast */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 0;
+        }
+
+        /* Styling the content inside the welcome section */
+        #welcome h2, #welcome p {
+            background: rgba(0, 0, 0, 0.5); /* Transparent background for text for better readability */
+            padding: 20px;
+            border-radius: 8px;
+        }
+
+    </style>
+    <script>
+        function showSection(id) {
+            document.querySelectorAll('section').forEach(section => {
+                section.style.display = 'none';
+            });
+            document.getElementById(id).style.display = 'block';
+        }
+    </script>
+</head>
+<body onload="showSection('welcome')"> <!-- Show the 'welcome' section on load -->
+
+    <div class="navbar">
+        <button onclick="showSection('welcome')">Home</button>
+        <button onclick="showSection('meeting-the-brief')">Meeting the Brief</button>
+        <button onclick="showSection('investigation')">Investigation</button>
+        <button onclick="showSection('plan-design')">Plan & Design</button>
+        <button onclick="showSection('create')">Create</button>
+        <button onclick="showSection('evaluation')">Evaluation</button>
+        <button onclick="showSection('references')">References</button>
+        <button onclick="showSection('summary-word-count')">Summary Word Count</button>
+    </div>
+
+    <section id="welcome">
+        <div>
+            <h2>Welcome to the Marine Fish Data Report!!</h2>
+            <p>This is a report on my project which explores insightful data on marine fish populations, fishing trends, and conservation efforts. Click on the sections above to navigate through my report.  🐟</p>
+        </div>
+    </section>
+
+    <section id="meeting-the-brief">
+        <h2>Meeting the Brief</h2>
+        <p></p>
+        <video width="640" height="360" controls>
+            <source src="static/video.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+        </video>
+    </section>
+    
+    
+    <section id="investigation">
+        <h2>Investigation</h2>
+        <p>At first, I was not sure what I wanted to do, I have a huge interest in movies but there was too much to choose from, none of which were recent enough. I landed on Marine Fish, not my first choice but a good one, nevertheless. I decided the first thing I wanted to do was to export all the data into an excel sheet, this helped me look and understand all the data given, next I decided to figure out what kind of graphs and how many I wanted to do. 
+            I decided to do Marine Fish as there was a lot of information and topics I could use from it. I do have a high interest in Marine Life.
+            </p>
+            <p>
+The problems and issues I wish to address are as follows: 
+ 	Fish population by Species.
+ 	Fishing methods and Species.
+ 	Overfishing risks.
+ 	Average size of fish vs water temperature. 
+ 	Water pollution by region.
+     </p>
+     <p>
+Who is this intended for?
+This dataset investigation is intended to be used for many people, for example, Marine Biologist students who wish to see the comparison between fish and their environment. This would be useful to get quick, correct data all in one place. 
+     </p>
+     <p>
+Why I chose my specific data set: <a href="https://www.kaggle.com/datasets/arifmia/marine-fish-dataset" target="_blank">https://www.kaggle.com/datasets/arifmia/marine-fish-dataset</a>
+     </p>
+     <p>
+I chose the specific dataset from Kaggle because it had a lot of useful information I can use and that related to what I wanted to do with the project.
+</p>
+<p>
+It was also updated a recent as a few days ago when I chose it, this was a lot better than some other datasets I looked at which were months or years in the past. 
+</p>
+<div style="display: flex; justify-content: center; gap: 15px;">
+    <img src="static/Ideas.jpg" class="graph" alt="Ideas" style="width: 30%; height: auto;">
+    <img src="static/Mind.jpg" class="graph" alt="Mind map" style="width: 50%; height: 90%;">
+</div>
+    
+ 
+    </section>
+    
+    <section id="plan-design">
+        <h2>Plan & Design</h2>
+        <p>This project focuses on creating an interactive information system that analyses and visualizes fish population data from publicly available datasets. The system will help researchers, policymakers, and the public understand trends in fish populations, supporting sustainable fishing and conservation efforts. The target audience includes environmentalists, marine biologists, policymakers, and individuals interested in ecological data. The system will be developed using an Agile approach, ensuring flexibility and iterative improvements based on testing and feedback.
+          </p>
+          <p>  
+            The project meets the basic requirements by extracting and cleaning data using Python (Pandas, NumPy) before storing it in a structured format like CSV or JSON. The data will be analysed and represented using Matplotlib, to generate at least two visualizations, such as a bar chart and a line graph, which will highlight trends in fish populations over time. The web-based interface developed using React, HTML, CSS, and JavaScript, will display these visualizations interactively, allowing users to hover over data points, filter results, and adjust ranges for deeper insights.
+          </p>
+          <p>
+            To meet the advanced requirements, a user survey form will be implemented using JavaScript and Firebase Realtime Database, allowing users to submit feedback, observations, or additional data related to fish populations. The form will collect at least three different types of data (e.g., text responses, numerical values, and dropdown selections), ensuring diversity in user input. Data will be validated before storage, and aggregated survey results will be displayed dynamically. Additionally, a recommendation section will analyse the survey responses and fish population trends to suggest conservation measures or policy adjustments.
+            </p>
+            <p>
+            The project considers ethical and social aspects, ensuring data integrity, transparency, and accessibility. Since the data originates from publicly available sources, proper attribution will be maintained. The system aligns with the brief’s objective of using open data to support decision-making, innovation, and societal benefits. By integrating Python for data analytics, JavaScript for interactivity, and Firebase for real-time storage, the project creates an engaging platform that enhances public understanding of fish populations and sustainability.
+            
+        
+            
+            </p>
+            <h2>System Design Flowchart and Architecture</h2>
+
+            <div style="display: flex; justify-content: center; gap: 15px;">
+                <img src="static/Flowcharttt.PNG" class="graph" alt="Flowchart" style="width: 30%; height: 50%;">
+                <img src="static/Architecture.PNG" class="graph" alt="Architecture" style="width: 40%; height: 90%;">
+            </div>
+
+    </section>
+    
+    <section id="create">
+        <h2>Create</h2>
+        <ul>
+            
+                <li><strong>Week 1:</strong> The project began with selecting a reliable fish population dataset. The dataset was obtained in CSV format and explored for structure, identifying key attributes like region, year, and population count. Basic statistical summaries were generated to understand its scope and limitations.</li>
+                <li><strong>Week 2:</strong> Data cleaning commenced using Python’s Pandas library. Missing values were handled through imputation, and non-numeric characters were removed using the replace() function. Duplicate entries were dropped, and data types were standardized to ensure consistency for analysis. The cleaned dataset was stored in a structured format for further processing.</li>
+                <li><strong>Week 3:</strong> Data analysis began with an exploration of fish population trends. Using Matplotlib, initial visualizations were created, including line graphs for population trends and bar charts for regional comparisons. These visualizations helped identify potential insights, such as population declines in certain areas.</li>
+                <li><strong>Week 4:</strong> A web-based interface was planned and structured using HTML, CSS, and JavaScript. The front-end framework was set up to ensure a user-friendly design, with a navigation menu and sections for data visualization, interactive charts, and user input. Basic page elements were styled to enhance readability and accessibility.</li>
+                <li><strong>Week 5:</strong> The first implementation of the interactive information system was developed. Fish population data was displayed dynamically using JavaScript, and basic event listeners were implemented to enable user interactions such as filtering data by ocean region. This step laid the foundation for more advanced interactive features.</li>
+                <li><strong>Week 6:</strong> Advanced interactivity was introduced, including hover effects for data points, tooltips for displaying additional details, and filtering options for users to select different time periods. This was achieved using D3.js and Chart.js, improving user engagement with the data.</li>
+                <li><strong>Week 7:</strong> A user survey form was designed to collect feedback and additional data from visitors. The form included at least three types of input (e.g., numerical values, multiple-choice selections, and text responses) and was validated using JavaScript before submission. Firebase Realtime Database was integrated to store survey responses.</li>
+                <li><strong>Week 8:</strong> The database connection was refined to ensure seamless data storage and retrieval. Firebase event listeners were used to display newly submitted survey responses dynamically on the webpage. Error handling mechanisms were implemented to improve data reliability.</li>
+                <li><strong>Week 9:</strong> A recommendation engine was developed using Python. The system analysed trends in fish population data and user survey inputs to generate meaningful insights. For example, if survey results indicated concerns about overfishing, the system highlighted declining populations and suggested conservation efforts.</li>
+                <li><strong>Week 10:</strong> Testing and debugging were conducted to ensure system reliability. Python scripts were tested for data processing accuracy, while JavaScript functions were debugged for proper interactivity. The website was tested on multiple browsers and devices to ensure compatibility.</li>
+                <li><strong>Week 11:</strong> Performance optimization was carried out to improve load times and responsiveness. Large datasets were processed more efficiently by aggregating values before visualization. Pagination and lazy loading were introduced to prevent browser slowdowns when displaying survey data.</li>
+                <li><strong>Week 12:</strong> Final refinements were made based on user feedback. The UI was polished, additional tooltips were added for usability, and final bug fixes were implemented. The project was thoroughly reviewed to ensure all requirements from the brief were met before submission.</li>
+            
+            <p>
+            Throughout the development process, extensive testing was conducted to validate each component. Unit testing was performed on Python scripts to confirm that data extraction, cleaning, and transformation processes worked as expected. Various test cases were considered, such as inputting datasets with missing values, incorrect formats, and duplicate entries to evaluate how well the system handled them.
+            Visualizations were tested by applying different data subsets and ensuring that charts updated dynamically. Additionally, cross-browser testing was conducted to ensure that the interactive elements functioned correctly in Chrome, Firefox, and Edge. Usability testing was also performed, where sample users provided feedback on the website’s intuitiveness and ease of navigation.
+            </p>
+<p>
+            One of the most challenging aspects of the project was handling real-time survey data updates. Initially, Firebase successfully stored responses, but retrieving and displaying the latest entries dynamically caused delays. This issue was resolved by using Firebase event listeners to trigger automatic updates whenever new data was added. This ensured that users could immediately see how their inputs influenced the dataset.
+            Another major challenge involved optimizing large datasets for visualization. Initially, rendering thousands of data points caused significant slowdowns. To solve this, data aggregation techniques were applied, grouping population values over time instead of displaying raw entries. Additionally, pagination and lazy loading were introduced for smoother performance.
+            The algorithm developed for the analytics section aimed to summarize fish population trends while incorporating user feedback from the survey. The algorithm first aggregated population data by region and year, calculated percentage changes, and identified areas with significant declines. It then cross-referenced survey responses to generate personalized insights. For example, if a user expressed concerns about declining fish populations in the Pacific Ocean, the system would highlight relevant data and suggest conservation efforts.
+            </p>
+        </li>
+            <li>
+                This algorithm efficiently processes large datasets while integrating user feedback, making the system not only an information tool but also a decision-making aid. 
+                The final implementation meets the project’s requirements by providing an interactive, user-friendly platform that allows the public to explore fish population trends, contribute data, and receive actionable insights.
+            </li>
+            <li>
+By utilizing Python for data processing, JavaScript for interactivity, and Firebase for real-time data storage, this project successfully demonstrates the power of data-driven decision-making in environmental sustainability. The system enables users to visualize trends, interact with the data, and contribute to research, making complex information accessible and engaging for a wider audience.
+            </li>
+            </ul>
+ 
+<p>
+    Here is some pseudocode :
+    </p>
+    <p>
+    function createRiskChart(riskData) {
+        <p>
+        const ctx = document.getElementById('riskChart').getContext('2d');
+        </p>
+        <p>
+                new Chart(ctx, {
+                    </p>
+                    <p>
+            type: 'bar',
+            </p>
+            <p>
+            data: {
+                </p>
+                <p>
+                labels: Object.keys(riskData),
+                </p>
+                <p>
+                datasets: [{
+                    </p>
+                    <p>
+                    label: 'Overfishing Risk. Red if overfished.',
+                    </p>
+                    <p>
+                    data: Object.values(riskData).map(risk => (risk === 'Yes' ? 1 : 0)),
+                    </p>
+                    <p>
+                    backgroundColor: Object.values(riskData).map(risk => (risk === 'Yes' ? 'rgba(255, 99, 132, 0.2)' : 'rgba(75, 192, 192, 0.2)')),
+                    </p>
+                    <p>
+                    borderColor: Object.values(riskData).map(risk => (risk === 'Yes' ? 'rgba(255, 99, 132, 1)' : 'rgba(75, 192, 192, 1)')),
+                    </p>
+                    <p>
+                    borderWidth: 1
+                    </p>
+                    <p>
+                }]
+                </p>
+                <p>
+            },
+            </p>
+            <p>
+            options: { indexAxis: 'y', responsive: true }
+            </p>
+            <p>
+        });
+ 
+            </p>
+    </section>
+    <section id="evaluation">
+        <h2>Evaluation</h2>
+        <p>The fish population information system meets the main requirements of the project. The dataset was chosen, cleaned, and stored using Python, ensuring accuracy. Two key visualizations—a bar chart and a line graph—help users see trends in fish populations across different regions. These visualizations are interactive, allowing users to hover over data points for more details. The web-based interface is simple and easy to use, making the information accessible to the public.
+</p>
+<p>
+            A user survey was also included, asking people about fish species they have seen and whether they have noticed overfishing. The form checks for incorrect inputs before saving the data to Firebase, ensuring only valid information is collected. A recommendation section provides advice on sustainable fishing based on the analysed data.
+           </p> 
+           <p>
+            Although the system meets the key requirements, there are ways to improve it. More types of charts, such as heatmaps or maps, could make the data easier to understand. Adding predictive features, like forecasting changes in fish populations, could make the system more useful. It would also help to allow users to add their own observations, making the data more detailed and up to date.
+            </p>
+            <p>
+            In the future, the website could be improved to work better on different devices. Including more historical and environmental data could make the analysis more accurate. These improvements would make the system more engaging and helpful for people interested in fish conservation.
+            
+            </p>
+    </section>
+    <section id="references">
+    <h2>References</h2>
+        <p>
+            <a href="https://www.kaggle.com/datasets/arifmia/marine-fish-dataset" target="_blank">https://www.kaggle.com/datasets/arifmia/marine-fish-dataset</a>
+ 
+        
+        </p>
+        <p>
+            <a href="https://data.worldbank.org/" target="_blank">https://data.worldbank.org/</a>
+        </p>
+        <p>
+            <a href="https://data.gov.ie/dataset/" target="_blank">https://data.gov.ie/dataset/</a>
+        </p>
+    </section>
+    <section id="summary-word-count">
+        <h2>Summary Word Count</h2>
+        <img src="static/Word2.PNG" class="graph" alt="Word">
+    </section>
+</body>
+</html>
